@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Website
 import android.provider.MediaStore
 import android.widget.Button
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var btnshare:Button
     lateinit var btnmpesa:Button
     lateinit var btncall:Button
-    lateinit var btnsubsititue:Button
+    lateinit var btnwebsite:Button
     lateinit var btnmap:Button
 
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         btnshare = findViewById(R.id.btn_share)
         btnmpesa = findViewById(R.id.btn_mpesa)
         btncall = findViewById(R.id.btn_call)
-        btnsubsititue = findViewById(R.id.btn_substitute)
+        btnwebsite = findViewById(R.id.btn_website)
         btnmap = findViewById(R.id.btn_map)
 
         btnsms.setOnClickListener {
@@ -57,5 +58,19 @@ class MainActivity : AppCompatActivity() {
             val simToolKitintent = applicationContext.packageManager.getLaunchIntentForPackage("com.android.stk")
             simToolKitintent?.let { startActivity(it) }
         }
+
+        btnwebsite.setOnClickListener {
+            val gotowebsite = Intent(this, website::class.java )
+            startActivity(gotowebsite)
+        }
+
+
+
+
+
+
+
+
+
     }
 }
